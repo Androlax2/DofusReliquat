@@ -39,14 +39,14 @@ export default class Reliquat {
      * Get the reliquat type (-reliquat or +reliquat)
      *
      * @param lineValues array of a line like : [["5 vitalité"], ["-15 Sagesse"], ["+reliquat"]]
-     * @returns {string} nothing or addReliquat (for +reliquat) or removeReliquat (for -reliquat)
+     * @returns false or addReliquat (for +reliquat) or removeReliquat (for -reliquat)
      * @private
      */
     _reliquatType(lineValues)
     {
         let end = lineValues[lineValues.length -1];
 
-        if (end != '-reliquat' && end != '+reliquat') return; // Don't process to reliquat calculation if there's no line with reliquat
+        if (end != '-reliquat' && end != '+reliquat') return false; // Don't process to reliquat calculation if there's no line with reliquat
         if (end == '+reliquat') return 'addReliquat';
         if (end == '-reliquat') return 'removeReliquat';
     }
@@ -95,7 +95,10 @@ export default class Reliquat {
 
         const lineSplitted = this._breakLine(line);
         const reliquatType = this._reliquatType(lineSplitted);
-        let lineReliquat = this._lineReliquat(lineSplitted, reliquatType, addValue);
+
+        if (!reliquatType) return;
+
+        let lineReliquat = this._lineReliquat(lineSplitted);
 
         switch (reliquatType) {
             case 'addReliquat':

@@ -4,9 +4,8 @@ import RunesWeightFR from "./runes/RunesWeightFR";
 
 const reliquatCalc = new Reliquat(new RunesWeightFR());
 
-reliquatCalc.add('-1 PA, +reliquat', '1 résistance terre');
-reliquatCalc.add('1 résistance terre, -reliquat');
-reliquatCalc.add('1 résistance terre, -reliquat');
-reliquatCalc.add('-reliquat');
+reliquatCalc.add('-1 Sagesse, 1 Résistance Feu, +reliquat');
+reliquatCalc.add('1 Résistance Terre');
+reliquatCalc.add('-1 PA, +reliquat', '1 résistance air');
 
 console.log(reliquatCalc.calc());
