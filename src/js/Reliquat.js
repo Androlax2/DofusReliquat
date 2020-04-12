@@ -60,7 +60,7 @@ export default class Reliquat {
      */
     _lineReliquat(lineValues)
     {
-        if (lineValues.length > 1) lineValues.pop(); // Remove the +reliquat or -reliquat
+        if (lineValues.length > 0) lineValues.pop(); // Remove the +reliquat or -reliquat
 
         let loses = 0,
             wins = 0,
