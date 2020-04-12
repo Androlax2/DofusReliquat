@@ -6,6 +6,8 @@
  *
  * @param e
  */
+import CantCalculateReliquatException from "./CantCalculateReliquatException";
+
 function onEdit(e)
 {
     if (e.range.getColumn() === 1 || e.range.getColumn() === 3) {
@@ -34,8 +36,18 @@ function handleCalcReliquat()
         if (!sheet.getRange(`A${i + 1}`).isBlank()) {
             try {
                 let lineReliquat = reliquatCalc.add(lines[i][0], sheet.getRange(`C${i + 1}`).getValue());
-
-                if (!lineReliquat) {
+            } catch (e) {
+                if (e instanceof MissingRuneWeightException) {
+                    sheet
+                        .getRange(`B${i + 1}`)
+                        .setValue(e.message)
+                        .setBackground('red')
+                        .setFontColor('white')
+                        .setHorizontalAlignment('center')
+                        .setVerticalAlignment('middle')
+                        .setWrap(true);
+                }
+                if (e instanceof CantCalculateReliquatException) {
                     sheet
                         .getRange(`B${i + 1}`)
                         .setValue('Impossible de calculer le reliquat. Il manque la rune que vous avez passé. Veuillez remplir la case à droite.')
@@ -49,17 +61,6 @@ function handleCalcReliquat()
                         .getRange(`C${i + 1}`)
                         .setValue('Corriger ici. Par exemple pour une rune "PA SA", écrivez : "3 Sagesse".')
                         .setBackground('green')
-                        .setFontColor('white')
-                        .setHorizontalAlignment('center')
-                        .setVerticalAlignment('middle')
-                        .setWrap(true);
-                }
-            } catch (e) {
-                if (e instanceof MissingRuneWeightException) {
-                    sheet
-                        .getRange(`B${i + 1}`)
-                        .setValue(e.message)
-                        .setBackground('red')
                         .setFontColor('white')
                         .setHorizontalAlignment('center')
                         .setVerticalAlignment('middle')

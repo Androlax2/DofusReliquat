@@ -2,6 +2,8 @@
  * This object calculate the reliquat of the game DOFUS
  * (used in "Forgemagie")
  */
+import CantCalculateReliquatException from "./CantCalculateReliquatException";
+
 export default class Reliquat {
 
     /**
@@ -75,7 +77,7 @@ export default class Reliquat {
             if (value !== 0 && weightOfStat > 0) lineReliquat = loses - wins;
         });
 
-        if (wins === 0 || loses === 0) return false; // We cant' calculate the reliquat if we miss data
+        if (wins === 0 || loses === 0) throw new CantCalculateReliquatException();
         return lineReliquat;
     }
 
@@ -84,7 +86,6 @@ export default class Reliquat {
      *
      * @param line string like "-15 Vitalité, +15 Sagesse, +reliquat"
      * @param addValue string add missed data to the calculation
-     * @returns {number|boolean}
      */
     add(line, addValue)
     {
@@ -103,8 +104,6 @@ export default class Reliquat {
                 this.reliquat -= lineReliquat;
                 break;
         }
-
-        return lineReliquat;
     }
 
     /**
