@@ -39,13 +39,19 @@ function handleCalcReliquat()
                         .getRange(`B${i + 1}`)
                         .setValue('Impossible de calculer le reliquat. Il manque la rune que vous avez passé. Veuillez remplir la case à droite.')
                         .setBackground('red')
-                        .setFontColor('white');
+                        .setFontColor('white')
+                        .setHorizontalAlignment('center')
+                        .setVerticalAlignment('middle')
+                        .setWrap(true);
 
                     sheet
                         .getRange(`C${i + 1}`)
                         .setValue('Corriger ici. Par exemple pour une rune "PA SA", écrivez : "3 Sagesse".')
                         .setBackground('green')
-                        .setFontColor('white');
+                        .setFontColor('white')
+                        .setHorizontalAlignment('center')
+                        .setVerticalAlignment('middle')
+                        .setWrap(true);
                 }
             } catch (e) {
                 if (e instanceof MissingRuneWeightException) {
@@ -53,7 +59,10 @@ function handleCalcReliquat()
                         .getRange(`B${i + 1}`)
                         .setValue(e.message)
                         .setBackground('red')
-                        .setFontColor('white');
+                        .setFontColor('white')
+                        .setHorizontalAlignment('center')
+                        .setVerticalAlignment('middle')
+                        .setWrap(true);
                 }
             }
 
