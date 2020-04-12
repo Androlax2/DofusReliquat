@@ -30,7 +30,7 @@ export default class RunesWeightFR {
             'puissance' : 2,
             'résistance air' : 2,
             'résistance neutre': 2,
-            'resistance feu': 2,
+            'résistance feu': 2,
             'résistance eau': 2,
             'résistance terre': 2,
             'dommages eau' : 5,
