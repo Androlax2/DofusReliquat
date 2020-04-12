@@ -34,6 +34,7 @@ function handleCalcReliquat()
         if (!sheet.getRange(`A${i + 1}`).isBlank()) {
             try {
                 let lineReliquat = reliquatCalc.add(lines[i][0], sheet.getRange(`C${i + 1}`).getValue());
+
                 if (!lineReliquat) {
                     sheet
                         .getRange(`B${i + 1}`)

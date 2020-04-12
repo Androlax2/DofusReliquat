@@ -53,14 +53,12 @@ export default class Reliquat {
      * Calculate the reliquat of the line
      *
      * @param lineValues array of a line like : [["5 vitalité"], ["-15 Sagesse"], ["+reliquat"]]
-     * @param addValue string add missed data to the calculation
      * @returns {boolean|number}
      * @private
      */
-    _lineReliquat(lineValues, addValue)
+    _lineReliquat(lineValues)
     {
         if (lineValues.length > 1) lineValues.pop(); // Remove the +reliquat or -reliquat
-        if (addValue) lineValues.push(addValue);
 
         let loses = 0,
             wins = 0,
@@ -77,7 +75,7 @@ export default class Reliquat {
             if (value !== 0 && weightOfStat > 0) lineReliquat = loses - wins;
         });
 
-        if (wins === 0) return false; // We cant' calculate the reliquat if we miss data
+        if (wins === 0 || loses === 0) return false; // We cant' calculate the reliquat if we miss data
         return lineReliquat;
     }
 
@@ -91,9 +89,11 @@ export default class Reliquat {
     add(line, addValue)
     {
         if (line === null || typeof line === 'undefined') return;
+        if (addValue) line = `${addValue}, ${line}`; // Add the value to the line (rune used by the user)
+
         const lineSplitted = this._breakLine(line);
         const reliquatType = this._reliquatType(lineSplitted);
-        let lineReliquat = this._lineReliquat(lineSplitted, addValue);
+        let lineReliquat = this._lineReliquat(lineSplitted);
 
         switch (reliquatType) {
             case 'addReliquat':
