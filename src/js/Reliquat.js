@@ -77,8 +77,8 @@ export default class Reliquat {
             if (value !== 0 && weightOfStat > 0) lineReliquat = loses - wins;
         });
 
-        if (wins === 0 || loses === 0) throw new CantCalculateReliquatException();
-        return lineReliquat;
+        if (wins === 0) throw new CantCalculateReliquatException();
+        return Math.abs(lineReliquat);
     }
 
     /**
@@ -90,11 +90,12 @@ export default class Reliquat {
     add(line, addValue)
     {
         if (line === null || typeof line === 'undefined') return;
+
         if (addValue) line = `${addValue}, ${line}`; // Add the value to the line (rune used by the user)
 
         const lineSplitted = this._breakLine(line);
         const reliquatType = this._reliquatType(lineSplitted);
-        let lineReliquat = this._lineReliquat(lineSplitted);
+        let lineReliquat = this._lineReliquat(lineSplitted, reliquatType, addValue);
 
         switch (reliquatType) {
             case 'addReliquat':
