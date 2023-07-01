@@ -49,7 +49,8 @@ export default class RunesWeightFR {
             'invocations' : 30,
             'dommages' : 20,
             'tacle' : 4,
-            'esquive pm': 7
+            'esquive pm': 7,
+            'retrait pa': 7
         };
     }
 
