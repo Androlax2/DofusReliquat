@@ -13,7 +13,7 @@ export default class RunesWeightFR {
      */
     constructor()
     {
-        this.runesWeight = {
+       this.runesWeight = {
             'vitalité' : 0.2,
             'sagesse' : 3,
             'force' : 1,
@@ -37,11 +37,17 @@ export default class RunesWeightFR {
             'résistance terre': 2,
             'résistance critiques': 2,
             'dommages eau' : 5,
+            'dommage eau': 5,
             'dommages critiques' : 5,
+            'dommage critiques': 5,
             'dommages terre' : 5,
+            'dommage terre': 5,
             'dommages neutre': 5,
+            'dommage neutre': 5,
             'dommages feu': 5,
+            'dommage feu': 5,
             'dommages air' : 5,
+            'dommage air': 5,
             '% résistance terre' : 6,
             '% résistance eau' : 6,
             '% résistance feu' : 6,
