@@ -59,7 +59,8 @@ class RunesWeightFR {
             'dommages' : 20,
             'tacle' : 4,
             'esquive pm': 7,
-            'retrait pa': 7
+            'retrait pa': 7,
+            'retrait pm': 7
         };
     }
 
