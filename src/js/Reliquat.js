@@ -2,7 +2,7 @@
  * This object calculate the reliquat of the game DOFUS
  * (used in "Forgemagie")
  */
-import CantCalculateReliquatException from "./CantCalculateReliquatException";
+const CantCalculateReliquatException = require('./CantCalculateReliquatException');
 
 class Reliquat {
 

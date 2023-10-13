@@ -13,4 +13,4 @@ function MissingRuneWeightException(stat)
 MissingRuneWeightException.prototype = Object.create(Error.prototype);
 MissingRuneWeightException.prototype.constructor = MissingRuneWeightException;
 
-export default MissingRuneWeightException;
+module.exports = MissingRuneWeightException;

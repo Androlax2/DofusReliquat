@@ -4,7 +4,7 @@
  * This object get the weight of each runes of DOFUS
  * (used in "Forgemagie")
  */
-import MissingRuneWeightException from "./MissingRuneWeightException";
+const MissingRuneWeightException = require('./MissingRuneWeightException');
 
 class RunesWeightFR {
 

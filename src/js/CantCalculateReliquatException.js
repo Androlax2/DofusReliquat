@@ -3,13 +3,13 @@
  *
  * @constructor
  */
-function CantCalculateReliquatException()
-{
+function CantCalculateReliquatException() {
     this.name = "CantCalculateReliquatException";
     this.message = `CAN'T CALCULATE THIS RELIQUAT. MISSING DATA`;
-    this.stack = (new Error()).stack;
+    this.stack = new Error().stack;
 }
+
 CantCalculateReliquatException.prototype = Object.create(Error.prototype);
 CantCalculateReliquatException.prototype.constructor = CantCalculateReliquatException;
 
-export default CantCalculateReliquatException;
+module.exports = CantCalculateReliquatException;

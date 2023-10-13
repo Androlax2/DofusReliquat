@@ -1,6 +1,6 @@
 'use strict';
-import Reliquat from './Reliquat';
-import RunesWeightFR from "./runes/RunesWeightFR";
+const Reliquat = require('./Reliquat');
+const RunesWeightFR = require('./runes/RunesWeightFR');
 
 const reliquatCalc = new Reliquat(new RunesWeightFR());
 
