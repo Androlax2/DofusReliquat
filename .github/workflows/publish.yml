@@ -1,10 +1,10 @@
-name: Publish to npm
+name: Publish to npm on Release
 
 on:
   release:
     types:
       - published
-      
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,10 +16,21 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 20
+          node-version: 14
 
       - name: Install dependencies
         run: npm install
+
+      - name: Extract Release Version
+        id: extract-version
+        run: |
+          # Extract the release version from the GITHUB_REF
+          export RELEASE_VERSION=$(echo $GITHUB_REF | sed 's#refs/tags/##')
+
+      - name: Update Package Version
+        run: |
+          # Use the extracted release version to update the package.json
+          npm version $RELEASE_VERSION
 
       - name: Publish to npm
         env:
