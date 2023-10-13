@@ -4,7 +4,7 @@
  */
 import CantCalculateReliquatException from "./CantCalculateReliquatException";
 
-export default class Reliquat {
+class Reliquat {
 
     /**
      * Create an object to calculate the reliquat.
@@ -119,3 +119,5 @@ export default class Reliquat {
     }
 
 }
+
+module.exports = Reliquat;

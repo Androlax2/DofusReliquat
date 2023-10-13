@@ -6,7 +6,7 @@
  */
 import MissingRuneWeightException from "./MissingRuneWeightException";
 
-export default class RunesWeightFR {
+class RunesWeightFR {
 
     /**
      * Create an object with all the runes weight in french
@@ -76,3 +76,5 @@ export default class RunesWeightFR {
     }
 
 }
+
+module.exports = RunesWeightFR;
