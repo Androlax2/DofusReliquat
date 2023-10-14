@@ -13,7 +13,7 @@ class RunesWeightFR {
      */
     constructor()
     {
-       this.runesWeight = {
+        this.runesWeight = {
             'vitalité' : 0.2,
             'sagesse' : 3,
             'force' : 1,
@@ -26,6 +26,7 @@ class RunesWeightFR {
             'po' : 51,
             'pm' : 90,
             'pa' : 100,
+            'pods': 0.25,
             'dommage': 20,
             'soins' : 10,
             'soin': 10,
@@ -45,6 +46,7 @@ class RunesWeightFR {
             'dommages neutre': 5,
             'dommage neutre': 5,
             'dommages feu': 5,
+            'retrait pm': 7,
             'dommage feu': 5,
             'dommages air' : 5,
             'dommage air': 5,
@@ -54,13 +56,15 @@ class RunesWeightFR {
             '% résistance air' : 6,
             '% résistance neutre' : 6,
             '% critique' : 10,
+            '% dommage distance': 15,
+            '% dommages distance': 15,
             'fuite' : 4,
             'invocations' : 30,
+            'invocation': 30,
             'dommages' : 20,
             'tacle' : 4,
             'esquive pm': 7,
-            'retrait pa': 7,
-            'retrait pm': 7
+            'retrait pa': 7
         };
     }
 
